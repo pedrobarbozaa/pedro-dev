@@ -3,7 +3,9 @@ import ProjectCard from "./ProjectCard";
 const Projects = () => {
   return (
     <section>
-      <ProjectCard></ProjectCard>
+      <ul>
+        <ProjectCard></ProjectCard>
+      </ul>
     </section>
   )
 };
