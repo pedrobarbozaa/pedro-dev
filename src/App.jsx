@@ -8,7 +8,6 @@ function App() {
 
   return (
     <>
-      <h2>Em desenvolvimento</h2>
       <Header></Header>
       <About></About>
       <Projects></Projects>

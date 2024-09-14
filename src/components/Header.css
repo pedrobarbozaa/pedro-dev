@@ -1,13 +1,48 @@
+.header {
+  position: relative;
+  background-color: bisque;
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.logo {
+  height: 3em;
+  will-change: filter;
+  transition: filter 300ms;
+  margin-right: 0.5em;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 1.5em #9206bdaa);
+}
+
+.logo-name{
+  font-size: x-large;
+  align-self: ;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em;  
+} 
+
 .nav-section {
+    float: left;
     text-decoration: none;
     color: #333;
     padding: 10px 15px;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    list-style-type: none; /* Remove os bullet points da ul */
   }
   
   .nav-section:hover {
     background-color: #f0f0f0;
     color: #007BFF;
-    transform: scale(10); /* Aumenta levemente o tamanho */
+    transform: scale(1.2); /* Aumenta levemente o tamanho */
   }
   

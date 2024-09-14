@@ -1,9 +1,11 @@
 
 const Navsection = (props) => {
   return (
-    <a className="nav-section">
-      {props.section}
-    </a>
+    <li className="nav-section">
+      <a /* className="nav-section" */>
+        {props.section}
+      </a>
+    </li>
   )
 };
 
