@@ -1,40 +1,75 @@
 import { useState } from 'react';
 
 const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = () => {
+    console.log('Form submitted:', formData);
+    alert('Mensagem enviada com sucesso!');
+    setFormData({ name: '', email: '', message: '' });
+  };
 
   return (
-    <form>
-      <label>
-        Nome:
-        <input
-          placeholder='Digite seu nome'
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </label>
-      <label>
-        Email:
-        <input
-          placeholder='Digite seu email'
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </label>
-      <label>
-        Mensagem:
-        <input
-          placeholder='Digite sua mensagem'
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-      </label>
-    </form>
+    <section id="contact" className="section contact-section">
+      <div className="section-content">
+        <h2 className="section-title">Entre em Contato</h2>
+        
+        <div className="contact-form">
+          <div className="form-group">
+            <label htmlFor="name" className="form-label">Nome</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className="form-input"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="form-input"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="message" className="form-label">Mensagem</label>
+            <textarea
+              id="message"
+              name="message"
+              className="form-textarea"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          
+          <button onClick={handleSubmit} className="submit-button">
+            Enviar Mensagem
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
 

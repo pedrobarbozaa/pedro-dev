@@ -1,16 +1,42 @@
 import Navsection from "./Navsection";
 
-const Navbar = () => {
+const Navbar = ({ isMenuOpen }) => {
+  const navItems = [
+    { section: "Home", href: "#home" },
+    { section: "Sobre", href: "#sobre" },
+    { section: "Projetos", href: "#projetos" },
+    { section: "Contato", href: "#contato" }
+  ];
+
   return (
-    <nav>
-      <ul>
-        <Navsection section="Home"></Navsection>
-        <Navsection section="Sobre"></Navsection>
-        <Navsection section="Projetos"></Navsection>
-        <Navsection section="Contato"></Navsection>
-      </ul>
-    </nav>
-  )
+    <>
+      {/* Navbar Desktop */}
+      <nav className="desktop-nav">
+        <ul>
+          {navItems.map((item, index) => (
+            <Navsection 
+              key={index}
+              section={item.section}
+              href={item.href}
+            />
+          ))}
+        </ul>
+      </nav>
+
+      {/* Navbar Mobile */}
+      <nav className={`mobile-nav ${isMenuOpen ? 'active' : ''}`}>
+        <ul>
+          {navItems.map((item, index) => (
+            <Navsection 
+              key={index}
+              section={item.section}
+              href={item.href}
+            />
+          ))}
+        </ul>
+      </nav>
+    </>
+  );
 };
 
-export default Navbar
+export default Navbar;
